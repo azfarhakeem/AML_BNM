@@ -13,6 +13,7 @@ import TransactionsList from './TransactionsList';
 import React from 'react';
 import RiskAssesment from './RiskAssesment';
 import IndividualDetail from './IndividualDetailComponents/IndividualDetail';
+import MapAndLinkageView from './MapAndLinkageView';
 
 function DashboardCrypto() {
   return (
@@ -40,7 +41,7 @@ function DashboardCrypto() {
                 <Overview />
               </Grid> */}
               <Grid item xs={12}>
-                <Revenue />
+                <MapAndLinkageView />
               </Grid>
               {/* <Grid item xs={12}>
                 <TransactionsList />

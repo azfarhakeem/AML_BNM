@@ -6,12 +6,23 @@ import {
     Grid,
     List,
     ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    ListSubheader,
     TextField,
     Typography,
     styled
   } from '@mui/material';
   import React from 'react';
   import { useState } from 'react';
+  import SendIcon from '@mui/icons-material/Send';
+import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
+import Collapse from '@mui/material/Collapse';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+
+
+
   
   // const AvatarWrapperError = styled(Avatar)(
   //   ({ theme }) => `
@@ -36,6 +47,11 @@ import {
   
   function FinancialReport() {
     const [checked, setChecked] = useState(['phone_verification']);
+    const [firstOpen, setFirstOpen] = useState(false);
+    const [secondOpen, setSecondOpen] = useState(false);
+
+
+
   
     const handleToggle = (value: string) => () => {
       const currentIndex = checked.indexOf(value);
@@ -49,54 +65,95 @@ import {
   
       setChecked(newChecked);
     };
+    const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  const handleFirstClick = () => {
+    setFirstOpen(!firstOpen);
+  };
+  const handleSecondClick = () => {
+    setSecondOpen(!secondOpen);
+  };
   
     return (
         <Card sx={{ 
             backgroundColor: '#FFF'
-            , boxShadow: '0px 9px 16px rgba(159, 162, 191, .5)' 
+            , boxShadow: '0px 9px 16px rgba(159, 162, 191, .5)' ,
+            width: '100%'
             }}>
 
         <Typography variant="h5" sx={{color:'#FFF', backgroundColor:'#0a5a99',padding:'15px', fontSize:'12px'}}>FINANCIAL REPORTS</Typography>
         
         <Divider />
-        <List disablePadding>
-          <ListItem
-            sx={{
-              py: 8
-            }}
-          >
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                <Typography variant="h4" sx={{color:'#000000'}}>Test</Typography>
-                </Grid>
-                
-                <Grid item xs={12} marginTop='-15px' marginLeft='-10px'>
-                    <TextField 
-                    defaultValue="" 
-                    fullWidth 
-                    sx={{ padding: '10px'}}
-                    />
-                </Grid>
-                
-                <Grid item xs={12}>
-                <Typography variant="h4" sx={{color:'#000000'}}>Test</Typography>
-                </Grid>
-                
-                {/* <Grid item xs={12} marginTop='-15px' marginLeft='-10px'>
-                    <TextField 
-                    defaultValue="Malaysia" 
-                    fullWidth 
-                    sx={{ padding: '10px'}}
-                    />
-                </Grid> */}
-            </Grid>
-          </ListItem>
-          
-          
-  
-          
-          
+        {/* <List disablePadding> */}
+        {/* <ListItemButton>
+            <ListItemIcon>
+              <SendIcon />
+            </ListItemIcon>
+            <ListItemText primary="Sent mail" />
+            </ListItemButton>
+       <ListItemButton>
+           */}
+           {/* </List> */}
+           <List
+      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      // subheader={
+      //   <ListSubheader component="div" id="nested-list-subheader">
+      //     Nested List Items
+      //   </ListSubheader>
+      // }
+    >
+      <ListItemButton>
+        <ListItemText primary="Maybank" />
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemText primary="Maxis Communications" />
+      </ListItemButton>
+      
+      <ListItemButton onClick={handleClick}>
+        <ListItemText primary="AMBANK GROUP" />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 4 }} onClick={handleFirstClick}>
+            <ListItemText primary="2023" />
+            {firstOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={firstOpen} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 6 }}>
+                <ListItemText primary="Audit_Report Q1" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 6 }}>
+                <ListItemText primary="Audit_Report Q2" />
+              </ListItemButton>
+            </List>
+          </Collapse>
+          <ListItemButton sx={{ pl: 4 }} onClick={handleSecondClick}>
+            <ListItemText primary="2022" />
+            {secondOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={secondOpen} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 6 }}>
+                <ListItemText primary="Audit_Report Q1" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 6 }}>
+                <ListItemText primary="Audit_Report Q2" />
+              </ListItemButton>
+            </List>
+          </Collapse>
         </List>
+      </Collapse>
+      
+      
+    </List>
       </Card>
     );
   }
