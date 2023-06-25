@@ -5,9 +5,10 @@ import {
   TooltipProps,
   tooltipClasses,
   styled,
-  useTheme
+  useTheme,CardMedia
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import yourLogoImage from '../../icon-512x512.png';
 
 const LogoWrapper = styled(Link)(
   ({ theme }) => `
@@ -99,28 +100,17 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="Tokyo Free White React Typescript Admin Dashboard"
+      title="DataMinds CDD"
       arrow
     >
       <LogoWrapper to="/overview">
-        <Badge
-          sx={{
-            '.MuiBadge-badge': {
-              fontSize: theme.typography.pxToRem(11),
-              right: -2,
-              top: 8
-            }
-          }}
-          overlap="circular"
-          color="success"
-          badgeContent="2.0"
-        >
-          <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
-          </LogoSignWrapper>
-        </Badge>
+      <CardMedia
+                            component="img"
+                            alt="Image"
+                            height="auto"
+                            image={yourLogoImage}
+                          />
+      
       </LogoWrapper>
     </TooltipWrapper>
   );

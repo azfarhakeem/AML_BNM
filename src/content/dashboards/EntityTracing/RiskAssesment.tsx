@@ -249,7 +249,26 @@ function RiskAssesment() {
                 </Grid>
                 <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
                 <TextField 
-                    defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in accumsan turpis, eget pellentesque dolor. Nulla non urna ut orci euismod elementum sit amet eget dui. Integer faucibus semper metus, eu fringilla augue hendrerit in. Vestibulum vel dolor sapien. Donec dignissim, metus nec dignissim volutpat, arcu massa placerat tellus, pulvinar sollicitudin ligula orci eu purus. Fusce lacinia risus quis tempus commodo. " 
+                    defaultValue="- Risk Factors:
+  - Unusual Transaction Patterns: John Doe has been involved in multiple high-value transactions in a short period of time, which deviates from his usual transaction behavior.
+  - Political Exposure: John Doe is affiliated with a politically exposed person (PEP) who is known to have a high risk of involvement in money laundering or corruption.
+  - High-Risk Jurisdiction: Several transactions made by John Doe have been flagged due to their association with a high-risk jurisdiction known for money laundering activities.
+  - Suspicious Transaction Activities: John Doe has frequently engaged in transactions just below the reporting thresholds, suggesting an attempt to avoid detection and regulatory scrutiny.
+
+- Enhanced Due Diligence Findings:
+  - Source of Funds: The source of funds for John Doe's transactions is unclear and requires further investigation to determine their legitimacy.
+  - Beneficial Ownership: Additional information is needed to identify and verify the beneficial owners behind the transactions involving John Doe.
+  - Business Relationships: It is important to assess the business relationships of John Doe to determine any potential links to high-risk entities or individuals.
+
+- Recommendations:
+  - Conduct a detailed investigation into the source of funds and beneficial ownership of the transactions involving John Doe.
+  - Engage in further enhanced due diligence to verify the legitimacy of the transactions and assess the associated risks.
+  - Consider reporting the suspicious activities to the appropriate regulatory authorities as per regulatory obligations.
+
+- Analyst Notes:
+  - Analyst Name: [Your Name]
+  - Date: [Date]
+  - Additional notes or observations made during the risk analysis process." 
                     fullWidth 
                     multiline
                     rows={3}

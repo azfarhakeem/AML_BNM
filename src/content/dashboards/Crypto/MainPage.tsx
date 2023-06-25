@@ -18,7 +18,7 @@ function DashboardCrypto() {
   return (
     <>
       <Helmet>
-        <title>Crypto Dashboard</title>
+        <title>DataMinds CDD</title>
       </Helmet>
       {/* <PageTitleWrapper>
         <PageHeader />
